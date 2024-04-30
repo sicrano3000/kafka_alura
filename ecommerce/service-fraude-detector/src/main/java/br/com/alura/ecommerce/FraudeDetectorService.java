@@ -7,12 +7,12 @@ import java.util.Map;
 public class FraudeDetectorService {
 
     public static void main(String[] args) {
-        var fraudeService = new FraudeDetectorService();
+        var fraudService = new FraudeDetectorService();
         try(var service = new KafkaService<>(FraudeDetectorService.class.getSimpleName(),
-                "ECOMMERCE_NEW_ORDER",
-                fraudeService::parse,
-                Order.class,
-                Map.of())) {
+                        "ECOMMERCE_NEW_ORDER",
+                        fraudService::parse,
+                        Order.class,
+                        Map.of())) {
             service.run();
         }
     }

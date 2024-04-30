@@ -14,7 +14,7 @@ public class GsonDeserializer<T> implements Deserializer<T> {
 
     @Override
     public void configure(Map<String, ?> configs, boolean isKey) {
-        var typeName = String.valueOf(configs.get(TYPE_CONFIG));
+        String typeName = String.valueOf(configs.get(TYPE_CONFIG));
         try {
             this.type = (Class<T>) Class.forName(typeName);
         } catch (ClassNotFoundException e) {
